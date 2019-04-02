@@ -1,0 +1,6 @@
+node_modules
+dist
+.git
+.DS_Store
+.rpt2_cache
+package-lock.json

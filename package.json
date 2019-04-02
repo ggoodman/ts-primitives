@@ -1,0 +1,39 @@
+{
+  "name": "ts-primitives",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "prepack": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ggoodman/ts-primitives.git"
+  },
+  "keywords": [],
+  "author": "Geoff Goodman <geoff@goodman.dev> (https://geoff.goodman.dev)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ggoodman/ts-primitives/issues"
+  },
+  "homepage": "https://github.com/ggoodman/ts-primitives#readme",
+  "devDependencies": {
+    "@types/node": "^8.10.45",
+    "prettier": "^1.16.4",
+    "rollup": "^1.8.0",
+    "rollup-plugin-typescript2": "^0.20.1",
+    "typescript": "^3.4.1"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5"
+  }
+}

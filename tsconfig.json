@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "noEmit": true,
+    "declaration": true,
+    "downlevelIteration": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "lib": ["es2018"],
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "rootDir": "./src",
+  },
+  "include": ["src"],
+}
