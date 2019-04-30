@@ -7,6 +7,7 @@ import { onUnexpectedError } from './errors';
 import { callOnce as onceFn } from './functional';
 import { combinedDisposable, Disposable, IDisposable, toDisposable } from './lifecycle';
 import { LinkedList } from './linkedList';
+import { Thenable } from './thenable';
 
 /**
  * To an event a function with one or zero parameters

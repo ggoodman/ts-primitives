@@ -6,3 +6,4 @@ export * from './functional';
 export * from './iterator';
 export * from './lifecycle';
 export * from './linkedList';
+export * from './thenable';

@@ -7,6 +7,7 @@ import * as errors from './errors';
 import { Emitter, Event } from './event';
 import { IDisposable } from './lifecycle';
 import { CancellationToken, CancellationTokenSource } from './cancellation';
+import { Thenable } from './thenable';
 
 export function isThenable<T>(obj: any): obj is Thenable<T> {
   return obj && typeof (<Thenable<any>>obj).then === 'function';
