@@ -16,7 +16,7 @@ export interface CancellationToken {
 }
 
 const shortcutEvent = Object.freeze(function(callback, context?): IDisposable {
-  let handle = setTimeout(callback.bind(context), 0);
+  const handle = setTimeout(callback.bind(context), 0);
   return {
     dispose() {
       clearTimeout(handle);
@@ -24,8 +24,8 @@ const shortcutEvent = Object.freeze(function(callback, context?): IDisposable {
   };
 } as Event<any>);
 
-export const CancellationToken = {
-  isCancellationToken(thing: any): thing is CancellationToken {
+export namespace CancellationToken {
+  export function isCancellationToken(thing: any): thing is CancellationToken {
     if (thing === CancellationToken.None || thing === CancellationToken.Cancelled) {
       return true;
     }
@@ -39,18 +39,18 @@ export const CancellationToken = {
       typeof (thing as CancellationToken).isCancellationRequested === 'boolean' &&
       typeof (thing as CancellationToken).onCancellationRequested === 'function'
     );
-  },
+  }
 
-  None: Object.freeze({
+  export const None: CancellationToken = Object.freeze({
     isCancellationRequested: false,
     onCancellationRequested: Event.None,
-  }) as CancellationToken,
+  });
 
-  Cancelled: Object.freeze({
+  export const Cancelled: CancellationToken = Object.freeze({
     isCancellationRequested: true,
     onCancellationRequested: shortcutEvent,
-  }) as CancellationToken,
-};
+  });
+}
 
 class MutableToken implements CancellationToken {
   private _isCancelled: boolean = false;
@@ -89,7 +89,12 @@ class MutableToken implements CancellationToken {
 }
 
 export class CancellationTokenSource {
-  private _token: CancellationToken | undefined;
+  private _token?: CancellationToken = undefined;
+  private _parentListener?: IDisposable = undefined;
+
+  constructor(parent?: CancellationToken) {
+    this._parentListener = parent && parent.onCancellationRequested(this.cancel, this);
+  }
 
   get token(): CancellationToken {
     if (!this._token) {
@@ -113,6 +118,9 @@ export class CancellationTokenSource {
   }
 
   dispose(): void {
+    if (this._parentListener) {
+      this._parentListener.dispose();
+    }
     if (!this._token) {
       // ensure to initialize with an empty token if we had none
       this._token = CancellationToken.None;
