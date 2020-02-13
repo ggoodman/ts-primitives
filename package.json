@@ -3,12 +3,12 @@
   "version": "1.1.0",
   "description": "",
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "node build.js",
     "prepack": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,16 +24,27 @@
   },
   "homepage": "https://github.com/ggoodman/ts-primitives#readme",
   "devDependencies": {
-    "@types/node": "^8.10.45",
-    "prettier": "^1.16.4",
-    "rollup": "^1.8.0",
-    "rollup-plugin-typescript2": "^0.20.1",
-    "typescript": "^3.4.1"
+    "@hapi/wreck": "^17.0.0",
+    "@types/node": "^12.12.27",
+    "@wessberg/rollup-plugin-ts": "^1.2.16",
+    "memfs": "^3.0.4",
+    "pino": "^5.16.0",
+    "pino-pretty": "^3.5.0",
+    "prettier": "^1.19.1",
+    "require-in-the-middle": "^5.0.3",
+    "rollup": "^1.31.0",
+    "tar-stream": "^2.1.0",
+    "tslib": "^1.10.0",
+    "typedoc": "^0.16.9",
+    "typedoc-plugin-markdown": "^2.2.16",
+    "typescript": "^3.7.5",
+    "unionfs": "^4.2.1"
   },
   "prettier": {
     "printWidth": 120,
     "singleQuote": true,
     "tabWidth": 2,
     "trailingComma": "es5"
-  }
+  },
+  "dependencies": {}
 }
