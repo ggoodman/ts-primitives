@@ -38,9 +38,11 @@ async function main(logger, hashish = VSCODE_GIT_REF) {
         declaration: true,
         moduleResolution: 'node',
         baseUrl: `${__dirname}/src`,
+        lib: ['dom', 'es5'],
         paths: {
           'vs/*': [`${__dirname}/src/vs/*`],
         },
+        strict: false,
         target: 'es2018',
       },
     }),
@@ -83,7 +85,7 @@ async function main(logger, hashish = VSCODE_GIT_REF) {
   extract.on('entry', (header, stream, next) => {
     const relativeZipPath = header.name;
 
-    if (header.type !== 'file' || !relativeZipPath.match(/^[^/]+\/src\/vs\/base\/common\//)) {
+    if (header.type !== 'file' || !relativeZipPath.match(/^[^/]+\/src\/vs\/base\/common\/|^[^/]+\/src\/typings\//)) {
       return Wreck.read(stream).then(() => next(), next);
     }
 
@@ -137,6 +139,7 @@ async function main(logger, hashish = VSCODE_GIT_REF) {
     browserslist: false,
     transpileOnly: true,
     // tsconfig: compilerOptions,
+    exclude: [`${__dirname}/src/vs/base/common/uri.ts`],
     cwd: __dirname,
     typescript: Typescript,
   });
