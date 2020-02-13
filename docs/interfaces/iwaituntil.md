@@ -16,12 +16,12 @@
 
 ###  waitUntil
 
-▸ **waitUntil**(`thenable`: Promise‹any›): *void*
+▸ **waitUntil**(`thenable`: [Promise](cancelablepromise.md#promise)‹any›): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`thenable` | Promise‹any› |
+`thenable` | [Promise](cancelablepromise.md#promise)‹any› |
 
 **Returns:** *void*

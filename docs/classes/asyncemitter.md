@@ -90,7 +90,7 @@ ___
 
 ###  fireAsync
 
-▸ **fireAsync**(`data`: Omit‹T, "waitUntil"›, `token`: [CancellationToken](../modules/cancellationtoken.md), `promiseJoin?`: function): *Promise‹void›*
+▸ **fireAsync**(`data`: Omit‹T, "waitUntil"›, `token`: [CancellationToken](../modules/cancellationtoken.md), `promiseJoin?`: function): *[Promise](../interfaces/cancelablepromise.md#promise)‹void›*
 
 **Parameters:**
 
@@ -100,13 +100,13 @@ ___
 
 ▪`Optional`  **promiseJoin**: *function*
 
-▸ (`p`: Promise‹any›, `listener`: Function): *Promise‹any›*
+▸ (`p`: [Promise](../interfaces/cancelablepromise.md#promise)‹any›, `listener`: Function): *[Promise](../interfaces/cancelablepromise.md#promise)‹any›*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`p` | Promise‹any› |
+`p` | [Promise](../interfaces/cancelablepromise.md#promise)‹any› |
 `listener` | Function |
 
-**Returns:** *Promise‹void›*
+**Returns:** *[Promise](../interfaces/cancelablepromise.md#promise)‹void›*

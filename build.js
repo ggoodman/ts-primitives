@@ -41,10 +41,30 @@ async function main(logger, hashish = VSCODE_GIT_REF) {
         paths: {
           'vs/*': [`${__dirname}/src/vs/*`],
         },
-        target: 'esnext',
+        target: 'es2018',
       },
     }),
     [entryPath]: `
+      export {
+        isThenable,
+        CancelablePromise,
+        createCancelablePromise,
+        raceCancellation,
+        asPromise,
+        Throttler,
+        Sequencer,
+        Delayer,
+        ThrottledDelayer,
+        Barrier,
+        timeout,
+        disposableTimeout,
+        ignoreErrors,
+        sequence,
+        first,
+        Limiter,
+        Queue,
+        retry,
+      } from 'vs/base/common/async';
       export * from 'vs/base/common/cancellation';
       export * from 'vs/base/common/event';
       export * from 'vs/base/common/lifecycle';`,
@@ -153,6 +173,7 @@ async function main(logger, hashish = VSCODE_GIT_REF) {
     hideSources: true,
     excludePrivate: true,
     excludeProtected: true,
+    ignoreCompilerErrors: true,
   });
 
   const project = app.convert([entryPath]);
@@ -174,6 +195,7 @@ if (require.main === module) {
       logger.info('goodbye');
     },
     err => {
+      console.error(err);
       logger.fatal(err, 'fatal error, exiting');
       logger.flush();
       process.exit(1);

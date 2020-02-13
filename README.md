@@ -12,7 +12,7 @@ This codebase produces an npm module that is an automatic derivation of some use
 
 Read code from the upstream `vscode` repo at the `UPSTREAM_GIT_HASHISH` (or `master` if not specified) and:
 
-1. Generate a tree-shaken module from `cancellation.ts`, `event.ts` and `lifecycle.ts`.
+1. Generate a tree-shaken module from `async.ts`, `cancellation.ts`, `event.ts` and `lifecycle.ts`.
 2. Produces `tsdoc` documents in `./docs`.
 
 ```sh

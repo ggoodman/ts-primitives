@@ -19,6 +19,12 @@
 
 ## Index
 
+### Properties
+
+* [language](inavigator.md#language)
+* [maxTouchPoints](inavigator.md#optional-maxtouchpoints)
+* [userAgent](inavigator.md#useragent)
+
 ### Methods
 
 * [current](inavigator.md#current)
@@ -27,6 +33,24 @@
 * [next](inavigator.md#next)
 * [parent](inavigator.md#parent)
 * [previous](inavigator.md#previous)
+
+## Properties
+
+###  language
+
+• **language**: *string*
+
+___
+
+### `Optional` maxTouchPoints
+
+• **maxTouchPoints**? : *number*
+
+___
+
+###  userAgent
+
+• **userAgent**: *string*
 
 ## Methods
 

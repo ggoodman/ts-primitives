@@ -383,7 +383,7 @@ ___
 
 ###  fromPromise
 
-▸ **fromPromise**<**T**>(`promise`: Promise‹T›): *[Event](event.md)‹undefined›*
+▸ **fromPromise**<**T**>(`promise`: [Promise](../interfaces/cancelablepromise.md#promise)‹T›): *[Event](event.md)‹undefined›*
 
 **Type parameters:**
 
@@ -393,7 +393,7 @@ ___
 
 Name | Type |
 ------ | ------ |
-`promise` | Promise‹T› |
+`promise` | [Promise](../interfaces/cancelablepromise.md#promise)‹T› |
 
 **Returns:** *[Event](event.md)‹undefined›*
 
@@ -571,7 +571,7 @@ ___
 
 ###  toPromise
 
-▸ **toPromise**<**T**>(`event`: [Event](event.md)‹T›): *Promise‹T›*
+▸ **toPromise**<**T**>(`event`: [Event](event.md)‹T›): *[Promise](../interfaces/cancelablepromise.md#promise)‹T›*
 
 **Type parameters:**
 
@@ -583,4 +583,4 @@ Name | Type |
 ------ | ------ |
 `event` | [Event](event.md)‹T› |
 
-**Returns:** *Promise‹T›*
+**Returns:** *[Promise](../interfaces/cancelablepromise.md#promise)‹T›*
