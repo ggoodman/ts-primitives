@@ -86,6 +86,7 @@
 * [NativeIteratorReturnResult](interfaces/nativeiteratorreturnresult.md)
 * [NativeIteratorYieldResult](interfaces/nativeiteratoryieldresult.md)
 * [SerializedError](interfaces/serializederror.md)
+* [Thenable](interfaces/thenable.md)
 * [UriComponents](interfaces/uricomponents.md)
 * [UriState](interfaces/uristate.md)
 * [V8CallSite](interfaces/v8callsite.md)
@@ -686,7 +687,7 @@ ___
 
 ▪ **callback**: *function*
 
-▸ (): *T | Thenable‹T›*
+▸ (): *T | [Thenable](interfaces/thenable.md)‹T›*
 
 **Returns:** *[Promise](interfaces/cancelablepromise.md#promise)‹T›*
 
