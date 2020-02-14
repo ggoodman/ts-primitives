@@ -37,13 +37,13 @@ can be changed at any point in time.
 
 ###  event
 
-• **event**: *[Event](../modules/event.md)‹T›* = this.emitter.event
+• **event**: *[Event](../modules/event.md)‹T›*
 
 ## Accessors
 
 ###  input
 
-• **set input**(`event`: [Event](../modules/event.md)‹T›): *void*
+• **set input**(`event`: [Event](../modules/event.md)‹T›): *any*
 
 **Parameters:**
 
@@ -51,7 +51,7 @@ Name | Type |
 ------ | ------ |
 `event` | [Event](../modules/event.md)‹T› |
 
-**Returns:** *void*
+**Returns:** *any*
 
 ## Methods
 

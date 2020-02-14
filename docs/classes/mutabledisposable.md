@@ -50,7 +50,7 @@ also register a `MutableDisposable` on a `Disposable` to ensure it is automatica
 
 **Returns:** *T | undefined*
 
-• **set value**(`value`: T | undefined): *void*
+• **set value**(`value`: T | undefined): *any*
 
 **Parameters:**
 
@@ -58,7 +58,7 @@ Name | Type |
 ------ | ------ |
 `value` | T &#124; undefined |
 
-**Returns:** *void*
+**Returns:** *any*
 
 ## Methods
 

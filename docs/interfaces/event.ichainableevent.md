@@ -10,10 +10,6 @@
 
 * **IChainableEvent**
 
-## Implemented by
-
-* [ChainableEvent](../classes/event.chainableevent.md)
-
 ## Index
 
 ### Properties

@@ -34,10 +34,6 @@
 
 * [next](iterator.md#next)
 
-### Object literals
-
-* [_empty](iterator.md#const-_empty)
-
 ## Functions
 
 ###  chain
@@ -60,7 +56,7 @@ ___
 
 ###  collect
 
-▸ **collect**<**T**>(`iterator`: [Iterator](iterator.md)‹T›, `atMost`: number): *T[]*
+▸ **collect**<**T**>(`iterator`: [Iterator](iterator.md)‹T›, `atMost?`: number): *T[]*
 
 **Type parameters:**
 
@@ -68,10 +64,10 @@ ___
 
 **Parameters:**
 
-Name | Type | Default |
------- | ------ | ------ |
-`iterator` | [Iterator](iterator.md)‹T› | - |
-`atMost` | number | Number.POSITIVE_INFINITY |
+Name | Type |
+------ | ------ |
+`iterator` | [Iterator](iterator.md)‹T› |
+`atMost?` | number |
 
 **Returns:** *T[]*
 
@@ -179,7 +175,7 @@ ___
 
 ###  fromArray
 
-▸ **fromArray**<**T**>(`array`: ReadonlyArray‹T›, `index`: number, `length`: number): *[Iterator](iterator.md)‹T›*
+▸ **fromArray**<**T**>(`array`: ReadonlyArray‹T›, `index?`: number, `length?`: number): *[Iterator](iterator.md)‹T›*
 
 **Type parameters:**
 
@@ -187,11 +183,11 @@ ___
 
 **Parameters:**
 
-Name | Type | Default |
------- | ------ | ------ |
-`array` | ReadonlyArray‹T› | - |
-`index` | number | 0 |
-`length` | number | array.length |
+Name | Type |
+------ | ------ |
+`array` | ReadonlyArray‹T› |
+`index?` | number |
+`length?` | number |
 
 **Returns:** *[Iterator](iterator.md)‹T›*
 
@@ -266,15 +262,3 @@ Name | Type |
 ▸ **next**(): *[IteratorResult](../README.md#iteratorresult)‹T›*
 
 **Returns:** *[IteratorResult](../README.md#iteratorresult)‹T›*
-
-## Object literals
-
-### `Const` _empty
-
-### ▪ **_empty**: *object*
-
-###  next
-
-▸ **next**(): *[IteratorUndefinedResult](../interfaces/iteratorundefinedresult.md)*
-
-**Returns:** *[IteratorUndefinedResult](../interfaces/iteratorundefinedresult.md)*

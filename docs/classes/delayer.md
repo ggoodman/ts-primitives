@@ -103,13 +103,13 @@ ___
 
 ###  trigger
 
-▸ **trigger**(`task`: [ITask](../interfaces/itask.md)‹T | [Promise](../interfaces/cancelablepromise.md#promise)‹T››, `delay`: number): *[Promise](../interfaces/cancelablepromise.md#promise)‹T›*
+▸ **trigger**(`task`: [ITask](../interfaces/itask.md)‹T | [Promise](../interfaces/cancelablepromise.md#promise)‹T››, `delay?`: number): *[Promise](../interfaces/cancelablepromise.md#promise)‹T›*
 
 **Parameters:**
 
-Name | Type | Default |
------- | ------ | ------ |
-`task` | [ITask](../interfaces/itask.md)‹T &#124; [Promise](../interfaces/cancelablepromise.md#promise)‹T›› | - |
-`delay` | number | this.defaultDelay |
+Name | Type |
+------ | ------ |
+`task` | [ITask](../interfaces/itask.md)‹T &#124; [Promise](../interfaces/cancelablepromise.md#promise)‹T›› |
+`delay?` | number |
 
 **Returns:** *[Promise](../interfaces/cancelablepromise.md#promise)‹T›*

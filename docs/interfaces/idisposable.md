@@ -14,11 +14,8 @@
 * [Disposable](../classes/disposable.md)
 * [DisposableStore](../classes/disposablestore.md)
 * [EventMultiplexer](../classes/eventmultiplexer.md)
-* [IntervalTimer](../classes/intervaltimer.md)
 * [MutableDisposable](../classes/mutabledisposable.md)
 * [Relay](../classes/relay.md)
-* [ResourceQueue](../classes/resourcequeue.md)
-* [TimeoutTimer](../classes/timeouttimer.md)
 
 ## Index
 

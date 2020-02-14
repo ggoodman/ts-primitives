@@ -26,7 +26,7 @@
 
 ### `Static` DISABLE_DISPOSED_WARNING
 
-▪ **DISABLE_DISPOSED_WARNING**: *boolean* = false
+▪ **DISABLE_DISPOSED_WARNING**: *boolean*
 
 ## Methods
 

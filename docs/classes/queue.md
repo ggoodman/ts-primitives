@@ -2,8 +2,6 @@
 
 # Class: Queue <**T**>
 
-A queue is handles one promise at a time and guarantees that at any time only one promise is executing.
-
 ## Type parameters
 
 ▪ **T**

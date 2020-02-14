@@ -36,9 +36,7 @@
 
 ### `Static` None
 
-▪ **None**: *object* = Object.freeze<IDisposable>({ dispose() { } })
-
-#### Type declaration:
+▪ **None**: *Readonly‹[IDisposable](../interfaces/idisposable.md)›*
 
 ## Methods
 

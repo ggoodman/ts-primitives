@@ -35,69 +35,72 @@ async function main(logger, hashish = VSCODE_GIT_REF) {
   const memFsFiles = {
     [Path.join(__dirname, 'tsconfig.json')]: JSON.stringify({
       compilerOptions: {
+        allowJs: true,
         declaration: true,
-        moduleResolution: 'node',
-        baseUrl: `${__dirname}/src`,
+        baseUrl: `./`,
         lib: ['dom', 'es5'],
+        moduleResolution: 'node',
+        noEmit: true,
+        outDir: `./out`,
         paths: {
-          'vs/*': [`${__dirname}/src/vs/*`],
+          'vs/*': [`./src/vs/*`],
         },
         strict: false,
         target: 'es2018',
       },
     }),
     [entryPath]: `
-export {
-  isThenable,
-  CancelablePromise,
-  createCancelablePromise,
-  raceCancellation,
-  asPromise,
-  Throttler,
-  Sequencer,
-  Delayer,
-  ThrottledDelayer,
-  Barrier,
-  timeout,
-  disposableTimeout,
-  ignoreErrors,
-  sequence,
-  first,
-  Limiter,
-  Queue,
-  retry,
-} from 'vs/base/common/async';
-export * from 'vs/base/common/cancellation';
-export * from 'vs/base/common/event';
-export * from 'vs/base/common/lifecycle';
-      
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
+  export {
+    isThenable,
+    CancelablePromise,
+    createCancelablePromise,
+    raceCancellation,
+    asPromise,
+    Throttler,
+    Sequencer,
+    Delayer,
+    ThrottledDelayer,
+    Barrier,
+    timeout,
+    disposableTimeout,
+    ignoreErrors,
+    sequence,
+    first,
+    Limiter,
+    Queue,
+    retry,
+  } from 'vs/base/common/async';
+  export * from 'vs/base/common/cancellation';
+  export * from 'vs/base/common/event';
+  export * from 'vs/base/common/lifecycle';
 
-/**
- * Thenable is a common denominator between ES6 promises, Q, jquery.Deferred, WinJS.Promise,
- * and others. This API makes no assumption about what promise libary is being used which
- * enables reusing existing code without migrating to a specific promise implementation. Still,
- * we recommend the use of native promises which are available in VS Code.
- */
-export interface Thenable<T> {
+  /*---------------------------------------------------------------------------------------------
+   *  Copyright (c) Microsoft Corporation. All rights reserved.
+   *  Licensed under the MIT License. See License.txt in the project root for license information.
+   *--------------------------------------------------------------------------------------------*/
+
   /**
-   * Attaches callbacks for the resolution and/or rejection of the Promise.
-   * @param onfulfilled The callback to execute when the Promise is resolved.
-   * @param onrejected The callback to execute when the Promise is rejected.
-   * @returns A Promise for the completion of which ever callback is executed.
+   * Thenable is a common denominator between ES6 promises, Q, jquery.Deferred, WinJS.Promise,
+   * and others. This API makes no assumption about what promise libary is being used which
+   * enables reusing existing code without migrating to a specific promise implementation. Still,
+   * we recommend the use of native promises which are available in VS Code.
    */
-  then<TResult>(
-    onfulfilled?: (value: T) => TResult | Thenable<TResult>,
-    onrejected?: (reason: any) => TResult | Thenable<TResult>
-  ): Thenable<TResult>;
-  then<TResult>(
-    onfulfilled?: (value: T) => TResult | Thenable<TResult>,
-    onrejected?: (reason: any) => void
-  ): Thenable<TResult>;
-}`,
+  export interface Thenable<T> {
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult>(
+      onfulfilled?: (value: T) => TResult | Thenable<TResult>,
+      onrejected?: (reason: any) => TResult | Thenable<TResult>
+    ): Thenable<TResult>;
+    then<TResult>(
+      onfulfilled?: (value: T) => TResult | Thenable<TResult>,
+      onrejected?: (reason: any) => void
+    ): Thenable<TResult>;
+  }`,
   };
 
   const url = `https://github.com/microsoft/vscode/archive/${hashish}.tar.gz`;
@@ -205,9 +208,11 @@ export interface Thenable<T> {
     excludePrivate: true,
     excludeProtected: true,
     ignoreCompilerErrors: true,
+    includeDeclarations: true,
+    excludeExternals: true,
   });
 
-  const project = app.convert([entryPath]);
+  const project = app.convert([Path.resolve(__dirname, Package.typings)]);
 
   if (project) {
     app.generateDocs(project, Path.resolve(__dirname, './docs'));

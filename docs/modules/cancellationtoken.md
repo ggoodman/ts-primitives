@@ -2,14 +2,6 @@
 
 # Module: CancellationToken
 
-## Hierarchy
-
-* **CancellationToken**
-
-## Implemented by
-
-* [MutableToken](../classes/mutabletoken.md)
-
 ## Index
 
 ### Events
@@ -72,19 +64,13 @@ A flag signalling is cancellation has been requested.
 
 ### `Const` Cancelled
 
-• **Cancelled**: *[CancellationToken](cancellationtoken.md)* = Object.freeze({
-		isCancellationRequested: true,
-		onCancellationRequested: shortcutEvent
-	})
+• **Cancelled**: *[CancellationToken](cancellationtoken.md)*
 
 ___
 
 ### `Const` None
 
-• **None**: *[CancellationToken](cancellationtoken.md)* = Object.freeze({
-		isCancellationRequested: false,
-		onCancellationRequested: Event.None
-	})
+• **None**: *[CancellationToken](cancellationtoken.md)*
 
 ## Functions
 

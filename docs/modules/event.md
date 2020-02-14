@@ -36,19 +36,18 @@ Name | Type |
 
 ## Index
 
-### Classes
-
-* [ChainableEvent](../classes/event.chainableevent.md)
-
 ### Interfaces
 
 * [DOMEventEmitter](../interfaces/event.domeventemitter.md)
 * [IChainableEvent](../interfaces/event.ichainableevent.md)
 * [NodeEventEmitter](../interfaces/event.nodeeventemitter.md)
 
-### Functions
+### Variables
 
 * [None](event.md#const-none)
+
+### Functions
+
 * [any](event.md#any)
 * [buffer](event.md#buffer)
 * [chain](event.md#chain)
@@ -67,15 +66,13 @@ Name | Type |
 * [stopwatch](event.md#stopwatch)
 * [toPromise](event.md#topromise)
 
-## Functions
+## Variables
 
 ### `Const` None
 
-▸ **None**(): *object*
+• **None**: *[Event](event.md)‹any›*
 
-**Returns:** *object*
-
-___
+## Functions
 
 ###  any
 
@@ -110,7 +107,7 @@ ___
 
 ###  buffer
 
-▸ **buffer**<**T**>(`event`: [Event](event.md)‹T›, `nextTick`: boolean, `_buffer`: T[]): *[Event](event.md)‹T›*
+▸ **buffer**<**T**>(`event`: [Event](event.md)‹T›, `nextTick?`: boolean, `_buffer?`: T[]): *[Event](event.md)‹T›*
 
 Buffers the provided event until a first listener comes
 along, at which point fire all the events at once and
@@ -139,11 +136,11 @@ emitter.fire(4);
 
 **Parameters:**
 
-Name | Type | Default |
------- | ------ | ------ |
-`event` | [Event](event.md)‹T› | - |
-`nextTick` | boolean | false |
-`_buffer` | T[] | [] |
+Name | Type |
+------ | ------ |
+`event` | [Event](event.md)‹T› |
+`nextTick?` | boolean |
+`_buffer?` | T[] |
 
 **Returns:** *[Event](event.md)‹T›*
 
@@ -327,7 +324,7 @@ ___
 
 ###  fromDOMEventEmitter
 
-▸ **fromDOMEventEmitter**<**T**>(`emitter`: [DOMEventEmitter](../interfaces/event.domeventemitter.md), `eventName`: string, `map`: function): *[Event](event.md)‹T›*
+▸ **fromDOMEventEmitter**<**T**>(`emitter`: [DOMEventEmitter](../interfaces/event.domeventemitter.md), `eventName`: string, `map?`: function): *[Event](event.md)‹T›*
 
 **Type parameters:**
 
@@ -339,7 +336,7 @@ ___
 
 ▪ **eventName**: *string*
 
-▪`Default value`  **map**: *function*= id => id
+▪`Optional`  **map**: *function*
 
 ▸ (...`args`: any[]): *T*
 
@@ -355,7 +352,7 @@ ___
 
 ###  fromNodeEventEmitter
 
-▸ **fromNodeEventEmitter**<**T**>(`emitter`: [NodeEventEmitter](../interfaces/event.nodeeventemitter.md), `eventName`: string, `map`: function): *[Event](event.md)‹T›*
+▸ **fromNodeEventEmitter**<**T**>(`emitter`: [NodeEventEmitter](../interfaces/event.nodeeventemitter.md), `eventName`: string, `map?`: function): *[Event](event.md)‹T›*
 
 **Type parameters:**
 
@@ -367,7 +364,7 @@ ___
 
 ▪ **eventName**: *string*
 
-▪`Default value`  **map**: *function*= id => id
+▪`Optional`  **map**: *function*
 
 ▸ (...`args`: any[]): *T*
 

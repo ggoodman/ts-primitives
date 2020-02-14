@@ -55,12 +55,12 @@ ___
 
 ###  dispose
 
-▸ **dispose**(`cancel`: boolean): *void*
+▸ **dispose**(`cancel?`: boolean): *void*
 
 **Parameters:**
 
-Name | Type | Default |
------- | ------ | ------ |
-`cancel` | boolean | false |
+Name | Type |
+------ | ------ |
+`cancel?` | boolean |
 
 **Returns:** *void*
