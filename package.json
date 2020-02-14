@@ -26,7 +26,7 @@
   "devDependencies": {
     "@hapi/wreck": "^17.0.0",
     "@types/node": "^12.12.27",
-    "@wessberg/rollup-plugin-ts": "^1.2.16",
+    "@wessberg/rollup-plugin-ts": "^1.2.17",
     "memfs": "^3.0.4",
     "pino": "^5.16.0",
     "pino-pretty": "^3.5.0",
