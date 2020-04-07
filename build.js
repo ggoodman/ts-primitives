@@ -71,8 +71,10 @@ async function main(logger, hashish = VSCODE_GIT_REF) {
     retry,
   } from 'vs/base/common/async';
   export * from 'vs/base/common/cancellation';
+  export * from 'vs/base/common/charCode';
   export * from 'vs/base/common/event';
   export * from 'vs/base/common/lifecycle';
+  export * from 'vs/base/common/uri';
 
   /*---------------------------------------------------------------------------------------------
    *  Copyright (c) Microsoft Corporation. All rights reserved.
@@ -122,7 +124,7 @@ async function main(logger, hashish = VSCODE_GIT_REF) {
 
     const targetPath = Path.join(__dirname, relativeZipPath.replace(/^[^/]+/, './'));
 
-    return Wreck.read(stream).then(data => {
+    return Wreck.read(stream).then((data) => {
       memFsFiles[targetPath] = data.toString();
 
       next();
@@ -191,32 +193,6 @@ async function main(logger, hashish = VSCODE_GIT_REF) {
     await build.write(output);
     logger.info({ output }, 'bundle written');
   }
-
-  const Typedoc = require('typedoc');
-
-  const app = new Typedoc.Application();
-
-  app.options.addReader(new Typedoc.TSConfigReader());
-
-  app.bootstrap({
-    mode: 'file',
-    logger,
-    plugin: ['typedoc-plugin-markdown'],
-    readme: 'none',
-    //@ts-ignore
-    hideSources: true,
-    excludePrivate: true,
-    excludeProtected: true,
-    ignoreCompilerErrors: true,
-    includeDeclarations: true,
-    excludeExternals: true,
-  });
-
-  const project = app.convert([Path.resolve(__dirname, Package.typings)]);
-
-  if (project) {
-    app.generateDocs(project, Path.resolve(__dirname, './docs'));
-  }
 }
 
 if (require.main === module) {
@@ -230,7 +206,7 @@ if (require.main === module) {
     () => {
       logger.info('goodbye');
     },
-    err => {
+    (err) => {
       console.error(err);
       logger.fatal(err, 'fatal error, exiting');
       logger.flush();
