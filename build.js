@@ -74,6 +74,7 @@ async function main(logger, hashish = VSCODE_GIT_REF) {
   export * from 'vs/base/common/charCode';
   export * from 'vs/base/common/event';
   export * from 'vs/base/common/lifecycle';
+  export * from 'vs/base/common/path';
   export * from 'vs/base/common/uri';
 
   /*---------------------------------------------------------------------------------------------
