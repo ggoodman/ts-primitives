@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "declaration": true,
+    "baseUrl": "./",
+    "lib": ["dom", "es5"],
+    "moduleResolution": "node",
+    "noEmit": true,
+    "outDir": "./out",
+    "paths": {
+      "vs/*": ["./src/vs/*"]
+    },
+    "resolveJsonModule": true,
+    "strict": false,
+    "target": "es2018"
+  }
+}

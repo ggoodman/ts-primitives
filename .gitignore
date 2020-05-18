@@ -4,3 +4,4 @@ dist
 .DS_Store
 .rpt2_cache
 package-lock.json
+src
