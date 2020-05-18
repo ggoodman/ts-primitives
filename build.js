@@ -104,6 +104,53 @@ async function main(logger, hashish = VSCODE_GIT_REF) {
       onrejected?: (reason: any) => void
     ): Thenable<TResult>;
   }`,
+    // Hack to make everything normalized to linux
+    [Path.join(__dirname, './src/vs/base/common/platform.ts')]: `
+      const _globals = (typeof self === 'object' ? self : typeof global === 'object' ? global : {} as any);
+      export const globals: any = _globals;
+
+      export const isWindows = false;
+      export const isMacintosh = false;
+
+      export const setImmediate: ISetImmediate = (function defineSetImmediate() {
+        if (globals.setImmediate) {
+          return globals.setImmediate.bind(globals);
+        }
+        if (typeof globals.postMessage === 'function' && !globals.importScripts) {
+          interface IQueueElement {
+            id: number;
+            callback: () => void;
+          }
+          let pending: IQueueElement[] = [];
+          globals.addEventListener('message', (e: MessageEvent) => {
+            if (e.data && e.data.vscodeSetImmediateId) {
+              for (let i = 0, len = pending.length; i < len; i++) {
+                const candidate = pending[i];
+                if (candidate.id === e.data.vscodeSetImmediateId) {
+                  pending.splice(i, 1);
+                  candidate.callback();
+                  return;
+                }
+              }
+            }
+          });
+          let lastId = 0;
+          return (callback: () => void) => {
+            const myId = ++lastId;
+            pending.push({
+              id: myId,
+              callback: callback
+            });
+            globals.postMessage({ vscodeSetImmediateId: myId }, '*');
+          };
+        }
+        if (typeof process !== 'undefined' && typeof process.nextTick === 'function') {
+          return process.nextTick.bind(process);
+        }
+        const _promise = Promise.resolve();
+        return (callback: (...args: any[]) => void) => _promise.then(callback);
+      })();
+    `,
   };
 
   const url = `https://github.com/microsoft/vscode/archive/${hashish}.tar.gz`;
@@ -124,6 +171,11 @@ async function main(logger, hashish = VSCODE_GIT_REF) {
     }
 
     const targetPath = Path.join(__dirname, relativeZipPath.replace(/^[^/]+/, './'));
+
+    if (memFsFiles[targetPath]) {
+      console.log('skipping', targetPath);
+      return Wreck.read(stream).then(() => next(), next);
+    }
 
     return Wreck.read(stream).then((data) => {
       memFsFiles[targetPath] = data.toString();
@@ -172,7 +224,7 @@ async function main(logger, hashish = VSCODE_GIT_REF) {
   const typescriptPlugin = RollupPluginTypescript({
     browserslist: false,
     transpileOnly: true,
-    // tsconfig: compilerOptions,
+    tsconfig: `${__dirname}/tsconfig.json`,
     exclude: [`${__dirname}/src/vs/base/common/uri.ts`],
     cwd: __dirname,
     typescript: Typescript,
