@@ -194,6 +194,11 @@ async function main(logger, hashish = VSCODE_GIT_REF) {
       format: 'commonjs',
       sourcemap: true,
     },
+    {
+      file: Package.module,
+      format: 'esm',
+      sourcemap: true,
+    },
   ];
   const typescriptPlugin = RollupPluginTypescript({
     browserslist: false,
