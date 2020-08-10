@@ -4,7 +4,7 @@ This codebase produces an npm module that is an automatic derivation of some use
 
 ## Documentation
 
-[API Documentation](./docs)
+[API Documentation](https://ggoodman.github.io/ts-primitives)
 
 ## Development
 
