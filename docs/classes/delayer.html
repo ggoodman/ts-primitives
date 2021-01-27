@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>A helper to delay execution of a task that is being requested often.</p>
+						<p>A helper to delay (debounce) execution of a task that is being requested often.</p>
 					</div>
 					<p>Following the throttler, now imagine the mail man wants to optimize the number of
 						trips proactively. The trip itself can be long, so he decides not to make the trip
@@ -84,7 +84,7 @@
 
     <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">letterReceived</span>(<span class="hljs-params">l</span>) </span>{
         letters.push(l);
-        delayer.trigger(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> { <span class="hljs-keyword">return</span> makeTheTrip(); });
+        delayer.trigger(<span class="hljs-function">() =&gt;</span> { <span class="hljs-keyword">return</span> makeTheTrip(); });
     }</code></pre>
 				</div>
 			</section>
@@ -150,7 +150,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:678</li>
+									<li>Defined in dist/index.d.ts:601</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -172,7 +172,7 @@
 					<div class="tsd-signature tsd-kind-icon">default<wbr>Delay<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in dist/index.d.ts:673</li>
+							<li>Defined in dist/index.d.ts:596</li>
 						</ul>
 					</aside>
 				</section>
@@ -189,7 +189,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:682</li>
+									<li>Defined in dist/index.d.ts:605</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -207,7 +207,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/idisposable.html">IDisposable</a>.<a href="../interfaces/idisposable.html#dispose">dispose</a></p>
 								<ul>
-									<li>Defined in dist/index.d.ts:684</li>
+									<li>Defined in dist/index.d.ts:607</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -224,7 +224,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:681</li>
+									<li>Defined in dist/index.d.ts:604</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -241,7 +241,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:680</li>
+									<li>Defined in dist/index.d.ts:603</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -312,12 +312,13 @@
 				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
@@ -331,6 +332,5 @@
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

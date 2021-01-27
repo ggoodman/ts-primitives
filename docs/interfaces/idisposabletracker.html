@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>UriComponents | ts-primitives</title>
+	<title>IDisposableTracker | ts-primitives</title>
 	<meta name="description" content="Documentation for ts-primitives">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../index.html">Globals</a>
 				</li>
 				<li>
-					<a href="uricomponents.html">UriComponents</a>
+					<a href="idisposabletracker.html">IDisposableTracker</a>
 				</li>
 			</ul>
-			<h1>Interface UriComponents</h1>
+			<h1>Interface IDisposableTracker</h1>
 		</div>
 	</div>
 </header>
@@ -68,14 +68,8 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">UriComponents</span>
+						<span class="target">IDisposableTracker</span>
 					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel">
-				<h3>Implemented by</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="../classes/uri.html" class="tsd-signature-type">URI</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -83,69 +77,62 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
+							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="uricomponents.html#authority" class="tsd-kind-icon">authority</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="uricomponents.html#fragment" class="tsd-kind-icon">fragment</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="uricomponents.html#path" class="tsd-kind-icon">path</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="uricomponents.html#query" class="tsd-kind-icon">query</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="uricomponents.html#scheme" class="tsd-kind-icon">scheme</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="idisposabletracker.html#marktracked" class="tsd-kind-icon">mark<wbr>Tracked</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="idisposabletracker.html#trackdisposable" class="tsd-kind-icon">track<wbr>Disposable</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="authority" class="tsd-anchor"></a>
-					<h3>authority</h3>
-					<div class="tsd-signature tsd-kind-icon">authority<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in dist/index.d.ts:515</li>
-						</ul>
-					</aside>
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="marktracked" class="tsd-anchor"></a>
+					<h3>mark<wbr>Tracked</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">mark<wbr>Tracked<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><a href="idisposable.html" class="tsd-signature-type">IDisposable</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in dist/index.d.ts:3</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <a href="idisposable.html" class="tsd-signature-type">IDisposable</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="fragment" class="tsd-anchor"></a>
-					<h3>fragment</h3>
-					<div class="tsd-signature tsd-kind-icon">fragment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in dist/index.d.ts:518</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="path" class="tsd-anchor"></a>
-					<h3>path</h3>
-					<div class="tsd-signature tsd-kind-icon">path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in dist/index.d.ts:516</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="query" class="tsd-anchor"></a>
-					<h3>query</h3>
-					<div class="tsd-signature tsd-kind-icon">query<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in dist/index.d.ts:517</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="scheme" class="tsd-anchor"></a>
-					<h3>scheme</h3>
-					<div class="tsd-signature tsd-kind-icon">scheme<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in dist/index.d.ts:514</li>
-						</ul>
-					</aside>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="trackdisposable" class="tsd-anchor"></a>
+					<h3>track<wbr>Disposable</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">track<wbr>Disposable<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><a href="idisposable.html" class="tsd-signature-type">IDisposable</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in dist/index.d.ts:2</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <a href="idisposable.html" class="tsd-signature-type">IDisposable</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -162,22 +149,13 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="uricomponents.html" class="tsd-kind-icon">Uri<wbr>Components</a>
+						<a href="idisposabletracker.html" class="tsd-kind-icon">IDisposable<wbr>Tracker</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="uricomponents.html#authority" class="tsd-kind-icon">authority</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="idisposabletracker.html#marktracked" class="tsd-kind-icon">mark<wbr>Tracked</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="uricomponents.html#fragment" class="tsd-kind-icon">fragment</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="uricomponents.html#path" class="tsd-kind-icon">path</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="uricomponents.html#query" class="tsd-kind-icon">query</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="uricomponents.html#scheme" class="tsd-kind-icon">scheme</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="idisposabletracker.html#trackdisposable" class="tsd-kind-icon">track<wbr>Disposable</a>
 							</li>
 						</ul>
 					</li>

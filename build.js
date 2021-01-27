@@ -204,7 +204,7 @@ async function main(logger, hashish = VSCODE_GIT_REF) {
     browserslist: false,
     transpileOnly: true,
     tsconfig: `${__dirname}/tsconfig.json`,
-    exclude: [`${__dirname}/src/vs/base/common/uri.ts`],
+    // exclude: [`${__dirname}/src/vs/base/common/uri.ts`],
     cwd: __dirname,
     typescript: Typescript,
   });

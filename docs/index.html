@@ -93,6 +93,7 @@
 								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/immortalreference.html" class="tsd-kind-icon">Immortal<wbr>Reference</a></li>
 								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/limiter.html" class="tsd-kind-icon">Limiter</a></li>
 								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/linkedlist.html" class="tsd-kind-icon">Linked<wbr>List</a></li>
+								<li class="tsd-kind-class"><a href="classes/multidisposeerror.html" class="tsd-kind-icon">Multi<wbr>Dispose<wbr>Error</a></li>
 								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/mutabledisposable.html" class="tsd-kind-icon">Mutable<wbr>Disposable</a></li>
 								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/pauseableemitter.html" class="tsd-kind-icon">Pauseable<wbr>Emitter</a></li>
 								<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/queue.html" class="tsd-kind-icon">Queue</a></li>
@@ -110,6 +111,7 @@
 								<li class="tsd-kind-interface tsd-has-type-parameter"><a href="interfaces/cancelablepromise.html" class="tsd-kind-icon">Cancelable<wbr>Promise</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/emitteroptions.html" class="tsd-kind-icon">Emitter<wbr>Options</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/idisposable.html" class="tsd-kind-icon">IDisposable</a></li>
+								<li class="tsd-kind-interface"><a href="interfaces/idisposabletracker.html" class="tsd-kind-icon">IDisposable<wbr>Tracker</a></li>
 								<li class="tsd-kind-interface"><a href="interfaces/ipath.html" class="tsd-kind-icon">IPath</a></li>
 								<li class="tsd-kind-interface tsd-has-type-parameter"><a href="interfaces/ireference.html" class="tsd-kind-icon">IReference</a></li>
 								<li class="tsd-kind-interface tsd-has-type-parameter"><a href="interfaces/itask.html" class="tsd-kind-icon">ITask</a></li>
@@ -160,9 +162,11 @@
 								<li class="tsd-kind-function tsd-has-type-parameter"><a href="index.html#racecancellation" class="tsd-kind-icon">race<wbr>Cancellation</a></li>
 								<li class="tsd-kind-function tsd-has-type-parameter"><a href="index.html#retry" class="tsd-kind-icon">retry</a></li>
 								<li class="tsd-kind-function tsd-has-type-parameter"><a href="index.html#sequence" class="tsd-kind-icon">sequence</a></li>
+								<li class="tsd-kind-function"><a href="index.html#setdisposabletracker" class="tsd-kind-icon">set<wbr>Disposable<wbr>Tracker</a></li>
 								<li class="tsd-kind-function"><a href="index.html#setgloballeakwarningthreshold" class="tsd-kind-icon">set<wbr>Global<wbr>Leak<wbr>Warning<wbr>Threshold</a></li>
 								<li class="tsd-kind-function"><a href="index.html#timeout" class="tsd-kind-icon">timeout</a></li>
 								<li class="tsd-kind-function"><a href="index.html#todisposable" class="tsd-kind-icon">to<wbr>Disposable</a></li>
+								<li class="tsd-kind-function tsd-has-type-parameter"><a href="index.html#trackdisposable" class="tsd-kind-icon">track<wbr>Disposable</a></li>
 								<li class="tsd-kind-function"><a href="index.html#uritofspath" class="tsd-kind-icon">uri<wbr>ToFs<wbr>Path</a></li>
 							</ul>
 						</section>
@@ -174,10 +178,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
 					<a name="listener" class="tsd-anchor"></a>
 					<h3>Listener</h3>
-					<div class="tsd-signature tsd-kind-icon">Listener&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span></div>
+					<div class="tsd-signature tsd-kind-icon">Listener&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in dist/index.d.ts:235</li>
+							<li>Defined in dist/index.d.ts:239</li>
 						</ul>
 					</aside>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -196,7 +200,7 @@
 					<div class="tsd-signature tsd-kind-icon">basename<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, ext<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in dist/index.d.ts:1410</li>
+							<li>Defined in dist/index.d.ts:1306</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -230,7 +234,7 @@
 					<div class="tsd-signature tsd-kind-icon">delimiter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in dist/index.d.ts:1416</li>
+							<li>Defined in dist/index.d.ts:1312</li>
 						</ul>
 					</aside>
 				</section>
@@ -240,7 +244,7 @@
 					<div class="tsd-signature tsd-kind-icon">dirname<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in dist/index.d.ts:1409</li>
+							<li>Defined in dist/index.d.ts:1305</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -271,7 +275,7 @@
 					<div class="tsd-signature tsd-kind-icon">extname<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in dist/index.d.ts:1411</li>
+							<li>Defined in dist/index.d.ts:1307</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -302,7 +306,7 @@
 					<div class="tsd-signature tsd-kind-icon">format<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>pathObject<span class="tsd-signature-symbol">: </span><a href="interfaces/parsedpath.html" class="tsd-signature-type">ParsedPath</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in dist/index.d.ts:1412</li>
+							<li>Defined in dist/index.d.ts:1308</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -333,7 +337,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Absolute<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in dist/index.d.ts:1405</li>
+							<li>Defined in dist/index.d.ts:1301</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -364,7 +368,7 @@
 					<div class="tsd-signature tsd-kind-icon">join<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>paths<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in dist/index.d.ts:1406</li>
+							<li>Defined in dist/index.d.ts:1302</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -395,7 +399,7 @@
 					<div class="tsd-signature tsd-kind-icon">normalize<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in dist/index.d.ts:1404</li>
+							<li>Defined in dist/index.d.ts:1300</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -426,7 +430,7 @@
 					<div class="tsd-signature tsd-kind-icon">parse<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="interfaces/parsedpath.html" class="tsd-signature-type">ParsedPath</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in dist/index.d.ts:1413</li>
+							<li>Defined in dist/index.d.ts:1309</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -457,7 +461,7 @@
 					<div class="tsd-signature tsd-kind-icon">posix<span class="tsd-signature-symbol">:</span> <a href="interfaces/ipath.html" class="tsd-signature-type">IPath</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in dist/index.d.ts:1403</li>
+							<li>Defined in dist/index.d.ts:1299</li>
 						</ul>
 					</aside>
 				</section>
@@ -467,7 +471,7 @@
 					<div class="tsd-signature tsd-kind-icon">relative<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>from<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, to<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in dist/index.d.ts:1408</li>
+							<li>Defined in dist/index.d.ts:1304</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -501,7 +505,7 @@
 					<div class="tsd-signature tsd-kind-icon">resolve<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>pathSegments<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in dist/index.d.ts:1407</li>
+							<li>Defined in dist/index.d.ts:1303</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -529,10 +533,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable">
 					<a name="sep" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> sep</h3>
-					<div class="tsd-signature tsd-kind-icon">sep<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"/"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"\"</span></div>
+					<div class="tsd-signature tsd-kind-icon">sep<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"\"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"/"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in dist/index.d.ts:1415</li>
+							<li>Defined in dist/index.d.ts:1311</li>
 						</ul>
 					</aside>
 				</section>
@@ -542,7 +546,7 @@
 					<div class="tsd-signature tsd-kind-icon">to<wbr>Namespaced<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in dist/index.d.ts:1414</li>
+							<li>Defined in dist/index.d.ts:1310</li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -573,7 +577,7 @@
 					<div class="tsd-signature tsd-kind-icon">win32<span class="tsd-signature-symbol">:</span> <a href="interfaces/ipath.html" class="tsd-signature-type">IPath</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in dist/index.d.ts:1402</li>
+							<li>Defined in dist/index.d.ts:1298</li>
 						</ul>
 					</aside>
 				</section>
@@ -590,7 +594,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:561</li>
+									<li>Defined in dist/index.d.ts:531</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -631,7 +635,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:10</li>
+									<li>Defined in dist/index.d.ts:20</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -654,7 +658,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:558</li>
+									<li>Defined in dist/index.d.ts:528</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -701,7 +705,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:728</li>
+									<li>Defined in dist/index.d.ts:641</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -743,7 +747,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:5</li>
+									<li>Defined in dist/index.d.ts:15</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -763,7 +767,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:6</li>
+									<li>Defined in dist/index.d.ts:16</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -783,7 +787,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:7</li>
+									<li>Defined in dist/index.d.ts:17</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -806,7 +810,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:8</li>
+									<li>Defined in dist/index.d.ts:18</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -826,7 +830,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:9</li>
+									<li>Defined in dist/index.d.ts:19</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -855,7 +859,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:738</li>
+									<li>Defined in dist/index.d.ts:648</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -908,7 +912,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:729</li>
+									<li>Defined in dist/index.d.ts:642</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -937,7 +941,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:4</li>
+									<li>Defined in dist/index.d.ts:14</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -966,14 +970,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:554</li>
+									<li>Defined in dist/index.d.ts:524</li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Create the external version of a uri</p>
-								</div>
-							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -1001,7 +1000,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:559</li>
+									<li>Defined in dist/index.d.ts:529</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1024,7 +1023,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:560</li>
+									<li>Defined in dist/index.d.ts:530</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1059,15 +1058,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:773</li>
+									<li>Defined in dist/index.d.ts:674</li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>A helper to organize queues per resource. The ResourceQueue makes sure to manage queues per resource
-									by disposing them once the queue is empty.</p>
-								</div>
-							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -1100,7 +1093,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:737</li>
+									<li>Defined in dist/index.d.ts:647</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1126,6 +1119,29 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="setdisposabletracker" class="tsd-anchor"></a>
+					<h3>set<wbr>Disposable<wbr>Tracker</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Disposable<wbr>Tracker<span class="tsd-signature-symbol">(</span>tracker<span class="tsd-signature-symbol">: </span><a href="interfaces/idisposabletracker.html" class="tsd-signature-type">IDisposableTracker</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in dist/index.d.ts:5</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>tracker: <a href="interfaces/idisposabletracker.html" class="tsd-signature-type">IDisposableTracker</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="setgloballeakwarningthreshold" class="tsd-anchor"></a>
 					<h3>set<wbr>Global<wbr>Leak<wbr>Warning<wbr>Threshold</h3>
 					<ul class="tsd-signatures tsd-kind-function">
@@ -1135,7 +1151,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:243</li>
+									<li>Defined in dist/index.d.ts:252</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1159,7 +1175,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:726</li>
+									<li>Defined in dist/index.d.ts:639</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1173,7 +1189,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:727</li>
+									<li>Defined in dist/index.d.ts:640</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1199,7 +1215,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:11</li>
+									<li>Defined in dist/index.d.ts:21</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1224,6 +1240,35 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
+					<a name="trackdisposable" class="tsd-anchor"></a>
+					<h3>track<wbr>Disposable</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">track<wbr>Disposable&lt;T&gt;<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in dist/index.d.ts:6</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="interfaces/idisposable.html" class="tsd-signature-type">IDisposable</a></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">T</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="uritofspath" class="tsd-anchor"></a>
 					<h3>uri<wbr>ToFs<wbr>Path</h3>
@@ -1234,9 +1279,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in dist/index.d.ts:542</li>
+									<li>Defined in dist/index.d.ts:523</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Compute <code>fsPath</code> for the given uri</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1307,6 +1357,9 @@
 					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="classes/linkedlist.html" class="tsd-kind-icon">Linked<wbr>List</a>
 					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/multidisposeerror.html" class="tsd-kind-icon">Multi<wbr>Dispose<wbr>Error</a>
+					</li>
 					<li class=" tsd-kind-class tsd-has-type-parameter">
 						<a href="classes/mutabledisposable.html" class="tsd-kind-icon">Mutable<wbr>Disposable</a>
 					</li>
@@ -1342,6 +1395,9 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/idisposable.html" class="tsd-kind-icon">IDisposable</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/idisposabletracker.html" class="tsd-kind-icon">IDisposable<wbr>Tracker</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/ipath.html" class="tsd-kind-icon">IPath</a>
@@ -1449,6 +1505,9 @@
 						<a href="index.html#sequence" class="tsd-kind-icon">sequence</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="index.html#setdisposabletracker" class="tsd-kind-icon">set<wbr>Disposable<wbr>Tracker</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="index.html#setgloballeakwarningthreshold" class="tsd-kind-icon">set<wbr>Global<wbr>Leak<wbr>Warning<wbr>Threshold</a>
 					</li>
 					<li class=" tsd-kind-function">
@@ -1456,6 +1515,9 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="index.html#todisposable" class="tsd-kind-icon">to<wbr>Disposable</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="index.html#trackdisposable" class="tsd-kind-icon">track<wbr>Disposable</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="index.html#uritofspath" class="tsd-kind-icon">uri<wbr>ToFs<wbr>Path</a>
@@ -1476,12 +1538,13 @@
 				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
@@ -1495,6 +1558,5 @@
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
